@@ -1,0 +1,47 @@
+version: 2.1
+orbs:
+  node: circleci/node@2.0.3
+jobs:
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install:
+          install-yarn: true
+          node-version: 12.16.3
+      - run: node --version
+      - run:
+          name: Docker Compose install
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - run:
+          name: docker-compose up
+          command: |
+            set -x
+            docker-compose -f docker-compose-test.yaml up -d --build
+      - restore_cache:
+          name: Yarn パッケージキャッシュを復元
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: 依存関係をインストール
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Yarn パッケージキャッシュを保存
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
+      - run:
+          name: docker-compose down
+          command: docker-compose down
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test
