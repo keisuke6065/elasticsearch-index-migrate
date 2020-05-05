@@ -34,10 +34,9 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - run:
+          name: Test
+          command: yarn test
       - run:
           name: docker-compose down
           command: docker-compose down
