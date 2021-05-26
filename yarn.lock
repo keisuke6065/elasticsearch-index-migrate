@@ -398,6 +398,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@sinonjs/fake-timers@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-7.1.0.tgz#8f13af27d842cbf51ad4502e05562fe9391d084e"
+  integrity sha512-hAEzXi6Wbvlb67NnGMGSNOeAflLVnMa4yliPU/ty1qjgW/vAletH15/v/esJwASSIA0YlIyjnloenFbEZc9q9A==
+  dependencies:
+    "@sinonjs/commons" "^1.7.0"
+
 "@sinonjs/formatio@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/formatio/-/formatio-5.0.1.tgz#f13e713cb3313b1ab965901b01b0828ea6b77089"
@@ -540,22 +547,12 @@
   dependencies:
     "@types/node" "*"
 
-"@types/sinon@*":
-  version "7.5.1"
-  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-7.5.1.tgz#d27b81af0d1cfe1f9b24eebe7a24f74ae40f5b7c"
-  integrity sha512-EZQUP3hSZQyTQRfiLqelC9NMWd1kqLcmQE0dMiklxBkgi84T+cHOhnKpgk4NnOWpGX863yE6+IaGnOXUNFqDnQ==
-
-"@types/sinon@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-9.0.1.tgz#463da26696a3d142a336a5dcbefc99006a6d6f38"
-  integrity sha512-vqWk3K1HYJExooYgORUdiGX1EdCWQxPi7P/OEIetdaJn4jNvEYoRRGLG/HwomtbzZ4IP9Syz2k4N50CItv6w6g==
+"@types/sinon@*", "@types/sinon@^10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-10.0.1.tgz#97ccb0482b750f5140ffdc661240ebbbe6e28d75"
+  integrity sha512-tZulsvuJwif5ddTBtscflI7gJcd+RpENcNZ7QCp0jKEl0bZY3Pu6PbJs4GR3SfQkGgsUa+FrlKsKQ0XyGNvDuA==
   dependencies:
-    "@types/sinonjs__fake-timers" "*"
-
-"@types/sinonjs__fake-timers@*":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-6.0.1.tgz#681df970358c82836b42f989188d133e218c458e"
-  integrity sha512-yYezQwGWty8ziyYLdZjwxyMb0CZR49h8JALHGrxjQHWlqGgc8kLdHEgWrgL0uZ29DMvEVBDnHU2Wg36zKSIUtA==
+    "@sinonjs/fake-timers" "^7.1.0"
 
 "@typescript-eslint/eslint-plugin@^2.33.0":
   version "2.33.0"
